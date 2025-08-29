@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanical Assemblies - Code & AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+  </head>
+  <body class="bg-white font-sans">
+          <!-- Header Section 151515-->
+     <header class="min-h-screen flex items-center justify-center bg-[#000000]">
+         <div class="max-w-6xl mx-auto px-4 text-center">
+             <div class="mb-8">
+                 <img src="control_nobg.png" alt="Mechanical Assembly" class="mx-auto h-64 md:h-[40rem] w-auto object-cover rounded-lg shadow-lg">
+             </div>
+             <h1 class="text-4xl md:text-5xl font-extralight text-white">
+                 A CAD tool focused on what matters: <br/>seamless collaboration and rapid iteration.
+             </h1>
+         </div>
+     </header>
+
+     <!-- Sticky Navigation Bar -->
+     <nav class="fixed top-0 left-0 right-0 bg-[#000000] z-50 py-4 px-8">
+         <div class="max-w-6xl mx-auto flex items-center justify-between">
+             <h1 class="text-4xl md:text-5xl font-bold text-white">Dekal</h1>
+         </div>
+     </nav>
+
+    <!-- Divider -->
+    <div class="h-px bg-gray-100"></div>
+
+    <!-- Three Sections -->
+         <main class="bg-[#E5E5E5]">
+         <!-- Desktop Layout -->
+         <div class="hidden md:flex md:flex-row">
+            <!-- First Section -->
+            <div class="flex-1 py-4 px-4">
+                <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
+                    Purpose built for robotics
+                </p>
+                <div class="mt-10 flex flex-col items-center justify-center text-center">
+                    <div class="mb-6">
+                        <img src="render.png" alt="Product Configurations" class="mx-auto h-48 w-auto object-cover rounded-lg">
+                    </div>
+                    <p class="text-l text-center text-gray-700 max-w-sm font-light">
+                        Dekal let's you define, visualize and iterate on the <b class="font-bold">core kinematic structure</b> of your assembly, all while managing every design detail and critical interface between your parts. You <b class="font-bold">don't need to replace the CAD tool you already know and love</b>, Dekal moves data in and out of them seamlessly.
+                    </p>
+                 </div>
+             </div>
+
+             <!-- Vertical Divider (Desktop) -->
+             <div class="w-px bg-gray-400"></div>
+
+             <!-- Second Section -->
+             <div class="flex-1 py-4 px-4">
+                <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
+                    A true digital factory
+                </p>
+                <div class="mt-10 flex flex-col items-center justify-center text-center"> 
+                    <div class="mb-6">
+                        <img src="render3d.png" alt="File Generation" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
+                    </div>
+                    <p class="text-l text-center text-gray-700 max-w-sm font-light">
+                        Create a rich, code based descriptions of your assembly and <b class="font-bold">let the compiler generate the output files</b> you care about in seconds. STEP Assemblies, Mass Reports, Robot Description Files, Geometrical Configurations, Product Variations, you name it; we compile it!
+                    </p>
+                </div>
+             </div>
+
+             <!-- Vertical Divider (Desktop) -->
+             <div class="w-px bg-gray-400"></div>
+
+             <!-- Third Section -->
+             <div class="flex-1 py-4 px-4">
+                 <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
+                    Keep everyone in sync with your product
+                 </p>
+                 <div class="mt-10 flex flex-col items-center justify-center text-center">
+                    <div class="mb-6">
+                        <img src="diff.png" alt="Version Tracking" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
+                    </div>
+                    <p class="text-l text-gray-700 max-w-sm font-light">
+                        Stop clicking tirelessly to release your design. Our compiler builds and verifies your design at every iteration. <b class="font-bold">Share your design instantly</b> while maintaining confidence that the design is valid and error free.
+                    </p>
+                 </div>
+             </div>
+         </div>
+
+                   <!-- Mobile Layout -->
+          <div class="md:hidden">
+              <!-- First Section -->
+              <div class="py-8 px-4">
+                  <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
+                      Manage Hundreds of Configurations
+                  </p>
+                  <div class="mt-10 flex flex-col items-center justify-center text-center">
+                      <div class="mb-6">
+                          <img src="render.png" alt="Product Configurations" class="mx-auto h-48 w-auto object-cover rounded-lg">
+                      </div>
+                      <p class="text-l text-center text-gray-700 max-w-sm font-light mb-8">
+                          Defining assemblies through code gives you a <b class="font-bold">single source of truth</b> to modify and generate both geometric and part variations for your mechanical products. Explore, test, and manage hundreds of assembly configurations seamlessly.
+                      </p>
+                  </div>
+              </div>
+
+             <!-- Horizontal Divider -->
+             <div class="h-px bg-gray-400"></div>
+
+                           <!-- Second Section -->
+              <div class="py-8 px-4">
+                  <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
+                      Instantly Generate Output Files
+                  </p>
+                  <div class="mt-10 flex flex-col items-center justify-center text-center"> 
+                      <div class="mb-6">
+                          <img src="render3d.png" alt="File Generation" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
+                      </div>
+                      <p class="text-l text-center text-gray-700 max-w-sm font-light mb-8">
+                          Bill of Materials, Robot Description files, STEP files, Mass Reports, and more are <b class="font-bold">generated instantly from a single location</b>. Updating your design has never been easier. Iterate quickly and test all product configurations.
+                      </p>
+                  </div>
+              </div>
+
+             <!-- Horizontal Divider -->
+             <div class="h-px bg-gray-400"></div>
+
+                           <!-- Third Section -->
+              <div class="py-8 px-4">
+                  <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
+                      Test and Review your assemblies
+                  </p>
+                  <div class="mt-10 flex flex-col items-center justify-center text-center">
+                      <div class="mb-6">
+                          <img src="diff.png" alt="Version Tracking" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
+                      </div>
+                      <p class="text-l text-gray-700 max-w-sm font-light mb-8">
+                          Your design can now be tested automatically at every revision change, giving you confidence that it is <b class="font-bold">valid and error-free</b>. Need to compare two product versions? We've got you covered.
+                      </p>
+                  </div>
+              </div>
+         </div>
+          </main>
+
+     <!-- Divider -->
+     <div class="h-px bg-gray-400"></div>
+
+     <!-- YouTube Video Section -->
+     <section class="py-8 bg-[#E5E5E5]">
+         <div class="max-w-4xl mx-auto px-4 text-center">
+             <h2 class="text-2xl font-light text-gray-800 mb-8 uppercase">See the tool in action</h2>
+             <div class="relative w-full" style="padding-bottom: 56.25%;">
+                 <iframe 
+                     class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                     src="https://www.youtube.com/embed/zQmvDREeo_g"
+                     title="Product Demo"
+                     frameborder="0"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                     allowfullscreen>
+                 </iframe>
+             </div>
+         </div>
+     </section>
+
+     <!-- Divider -->
+     <div class="h-px bg-gray-400"></div>
+
+     <!-- Contact Section -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="mb-8">
+                <h2 class="text-xl font-light text-gray-800 mb-4">Interested in learning more?</h2>
+            </div>
+            
+            <a href="mailto:timothee dot peter @ mac dot com" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-light py-3 px-8 rounded-lg transition duration-200">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="h-px bg-black"></div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2025 NoNameFoundYet. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
