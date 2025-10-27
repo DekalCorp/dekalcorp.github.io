@@ -25,9 +25,12 @@
              <div class="mb-8">
                  <img src="control_nobg.png" alt="Mechanical Assembly" class="mx-auto h-64 md:h-[40rem] w-auto object-cover rounded-lg shadow-lg">
              </div>
-             <h1 class="text-4xl md:text-5xl font-extralight text-white leading-[2.5]">
-                Iterate, collaborate and build stuff: <br/><br/> let your CAD tool do the rest.
+             <h1 class="text-4xl md:text-5xl font-extralight text-white text-left leading-[2.5] mb-4">
+                Built for rapid design iteration in robotics.
              </h1>
+             <div class="text-lg md:text-lg font-extralight text-white text-left leading-[2.5]">
+                Dekal brings a single automated workflow for kinematics, visualization, and simulation.
+             </div>
          </div>
      </header>
 
@@ -43,61 +46,58 @@
 
     <!-- Three Sections -->
          <main class="bg-[#E5E5E5]">
-         <!-- Desktop Layout -->
-         <div class="hidden md:flex md:flex-row">
-
-             <!-- Second Section -->
-             <div class="flex-1 py-4 px-4">
+         <section class="flex flex-col md:flex-row p-6">
+             <!-- Design Section -->
+             <div class="flex-1 py-4 px-4 mb-8 md:mb-0 border-b md:border-b-0 border-gray-400">
                 <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
-                    Iterate
+                    Design
                 </p>
                 <div class="mt-10 flex flex-col items-center justify-center text-center"> 
                     <div class="mb-6">
                         <img src="render3d.png" alt="File Generation" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
                     </div>
                     <p class="text-l text-center text-gray-700 max-w-sm font-light">
-                        STEP Assemblies, Mass Reports, Robot Description Files, Geometrical Configurations, Product Variations, you name it; we produce it! Dekal is a <b class="font-bold">true digital factory</b>. Create a rich, code based descriptions of your assembly and let the compiler generate the output files you care about in seconds.
+                        With Dekal, you can capture more than conventional CAD. <b class="font-bold">Both mechanical constraints and degrees of freedom</b> are defined within a single code-based interface. Our integrated visualizer updates the structure instantly as you create and modify your design.
                     </p>
                 </div>
              </div>
 
              <!-- Vertical Divider (Desktop) -->
-             <div class="w-px bg-gray-400"></div>
+             <div class="hidden md:block w-px bg-gray-400"></div>
 
-             <!-- Third Section -->
-             <div class="flex-1 py-4 px-4">
+             <!-- Understand Section -->
+             <div class="flex-1 py-4 px-4 mb-8 md:mb-0 border-b md:border-b-0 border-gray-400">
                  <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
-                    Collaborate
+                    Understand
                  </p>
                  <div class="mt-10 flex flex-col items-center justify-center text-center">
                     <div class="mb-6">
                         <img src="diff.png" alt="Version Tracking" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
                     </div>
-                    <p class="text-l text-gray-700 max-w-sm font-light">
-                        Stop clicking tirelessly to release your design. Our compiler builds and verifies your design at every iteration. You can <b class="font-bold">share your design instantly</b> with your team while maintaining confidence that the design is valid and error free.
+                    <p class="text-l text-center text-gray-700 max-w-sm font-light">
+                        The <b class="font-bold">integrated load solver</b> provides immediate feedback on your design's performance. Define load cases and motion ranges, and monitor all static loads across your structure through 2D or 3D plots.
                     </p>
                  </div>
              </div>
 
-              <!-- Vertical Divider (Desktop) -->
-              <div class="w-px bg-gray-400"></div>
+             <!-- Vertical Divider (Desktop) -->
+             <div class="hidden md:block w-px bg-gray-400"></div>
 
-             <!-- First Section -->
+             <!-- Integrate Section -->
             <div class="flex-1 py-4 px-4">
                 <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
-                    Build stuff
+                    Integrate
                 </p>
                 <div class="mt-10 flex flex-col items-center justify-center text-center">
                     <div class="mb-6">
                         <img src="render.png" alt="Product Configurations" class="mx-auto h-48 w-auto object-cover rounded-lg">
                     </div>
                     <p class="text-l text-center text-gray-700 max-w-sm font-light">
-                        Dekal let's you define, visualize and iterate on the <b class="font-bold">core kinematic structure</b> of your assembly, all while managing every design detail and critical interface between your parts. You <b class="font-bold">don't need to replace the CAD tool you already know and love</b>, Dekal moves data in and out of them seamlessly.
+                        Our workflow engine ties seamlessly into your existing toolchain. Publish key interfaces to your CAD tools, generate <b class="font-bold">robot description files, mass reports, bills of materials, and print files</b> — all through a single automated process.
                     </p>
                  </div>
              </div>
-
-         </div>
+         </section>
           </main>
 
      <!-- Divider -->
@@ -108,14 +108,15 @@
          <div class="max-w-4xl mx-auto px-4 text-center">
              <h2 class="text-2xl font-light text-gray-800 mb-8 uppercase">See the tool in action</h2>
              <div class="relative w-full" style="padding-bottom: 56.25%;">
-                 <iframe 
-                     class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
-                     src="https://www.youtube.com/embed/_bJuOC_KVIg"
-                     title="Product Demo"
-                     frameborder="0"
-                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                     allowfullscreen>
-                 </iframe>
+                <iframe 
+                    class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                    src="https://www.youtube.com/embed/5VQWuIJqzlg?si=e9FRCzskhPR8ggS2"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
              </div>
          </div>
      </section>
