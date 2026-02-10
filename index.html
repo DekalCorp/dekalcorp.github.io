@@ -3,148 +3,406 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanical Assemblies - Code & AI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Dekal — Robotics Design Workflow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                        'sans': ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+                        'display': ['Space Grotesk', 'IBM Plex Sans', 'sans-serif']
+                    },
+                    colors: {
+                        ink: '#0A0A0A',
+                        fog: '#F1F0EB',
+                        card: '#1A1A1A',
+                        border: '#2A2A2A',
+                        accent: '#4ADE80',
                     }
                 }
             }
         }
     </script>
-  </head>
-  <body class="bg-white font-sans">
-          <!-- Header Section 151515-->
-     <header class="min-h-screen flex items-center justify-center bg-[#000000]">
-         <div class="max-w-6xl mx-auto px-4 text-center">
-             <div class="mb-8">
-                 <img src="control_nobg.png" alt="Mechanical Assembly" class="mx-auto h-64 md:h-[40rem] w-auto object-cover rounded-lg shadow-lg">
-             </div>
-             <h1 class="text-4xl md:text-5xl font-extralight text-white text-left leading-[2.5] mb-4">
-                Built for rapid design iteration in robotics.
-             </h1>
-             <div class="text-lg md:text-lg font-extralight text-white text-left leading-[2.5]">
-                Dekal brings a single automated workflow for kinematics, visualization, and simulation.
-             </div>
-         </div>
-     </header>
+    <style>
+        .hero-mesh {
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 39px,
+                    rgba(74, 222, 128, 0.07) 39px,
+                    rgba(74, 222, 128, 0.07) 40px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 39px,
+                    rgba(74, 222, 128, 0.07) 39px,
+                    rgba(74, 222, 128, 0.07) 40px
+                ),
+                radial-gradient(ellipse 120% 60% at 60% 30%, rgba(74, 222, 128, 0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 80% 50% at 30% 60%, rgba(74, 222, 128, 0.08) 0%, transparent 60%),
+                linear-gradient(180deg, #0A0A0A 0%, #0d1a0f 40%, #0A0A0A 100%);
+            background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
+        }
+        .hero-mesh::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    -30deg,
+                    transparent,
+                    transparent 79px,
+                    rgba(74, 222, 128, 0.04) 79px,
+                    rgba(74, 222, 128, 0.04) 80px
+                ),
+                repeating-linear-gradient(
+                    30deg,
+                    transparent,
+                    transparent 79px,
+                    rgba(74, 222, 128, 0.04) 79px,
+                    rgba(74, 222, 128, 0.04) 80px
+                );
+            mask-image: radial-gradient(ellipse 80% 70% at 55% 40%, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 70% at 55% 40%, black 0%, transparent 70%);
+        }
+        .hero-mesh::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 0%, #0A0A0A 95%);
+        }
+    </style>
+</head>
+<body class="bg-ink font-sans text-fog">
 
-     <!-- Sticky Navigation Bar -->
-     <nav class="fixed top-0 left-0 right-0 bg-[#000000] z-50 py-4 px-8">
-         <div class="max-w-6xl mx-auto flex items-center justify-between">
-             <h1 class="text-4xl md:text-5xl font-bold text-white">Dekal</h1>
-         </div>
-     </nav>
-
-    <!-- Divider -->
-    <div class="h-px bg-gray-100"></div>
-
-    <!-- Three Sections -->
-         <main class="bg-[#E5E5E5]">
-         <section class="flex flex-col md:flex-row p-6">
-             <!-- Design Section -->
-             <div class="flex-1 py-4 px-4 mb-8 md:mb-0 border-b md:border-b-0 border-gray-400">
-                <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
-                    Design
-                </p>
-                <div class="mt-10 flex flex-col items-center justify-center text-center"> 
-                    <div class="mb-6">
-                        <img src="render3d.png" alt="File Generation" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
-                    </div>
-                    <p class="text-l text-center text-gray-700 max-w-sm font-light">
-                        Dekal lets you capture more than conventional CAD. <b class="font-bold">Both mechanical constraints and degrees of freedom</b> are defined within a single code-based interface. Our integrated visualizer updates the structure instantly as you create and modify your design.
-                    </p>
-                </div>
-             </div>
-
-             <!-- Vertical Divider (Desktop) -->
-             <div class="hidden md:block w-px bg-gray-400"></div>
-
-             <!-- Understand Section -->
-             <div class="flex-1 py-4 px-4 mb-8 md:mb-0 border-b md:border-b-0 border-gray-400">
-                 <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
-                    Understand
-                 </p>
-                 <div class="mt-10 flex flex-col items-center justify-center text-center">
-                    <div class="mb-6">
-                        <img src="diff.png" alt="Version Tracking" class="mx-auto h-48 w-auto object-cover rounded-lg shadow-md">
-                    </div>
-                    <p class="text-l text-center text-gray-700 max-w-sm font-light">
-                        Our <b class="font-bold">integrated loads solver</b> provides immediate feedback on your design's performance. Define load cases and motion ranges, and monitor all static loads across your structure through 2D or 3D plots.
-                    </p>
-                 </div>
-             </div>
-
-             <!-- Vertical Divider (Desktop) -->
-             <div class="hidden md:block w-px bg-gray-400"></div>
-
-             <!-- Integrate Section -->
-            <div class="flex-1 py-4 px-4">
-                <p class="text-l text-gray-700 max-w-sm font-medium uppercase">
-                    Integrate
-                </p>
-                <div class="mt-10 flex flex-col items-center justify-center text-center">
-                    <div class="mb-6">
-                        <img src="render.png" alt="Product Configurations" class="mx-auto h-48 w-auto object-cover rounded-lg">
-                    </div>
-                    <p class="text-l text-center text-gray-700 max-w-sm font-light">
-                        Our workflow engine ties seamlessly into your existing toolchain. Publish key interfaces to your CAD tools, generate <b class="font-bold">robot description files, mass reports, bills of materials, and print files</b> — all through a single automated process.
-                    </p>
-                 </div>
-             </div>
-         </section>
-          </main>
-
-     <!-- Divider -->
-     <div class="h-px bg-gray-400"></div>
-
-     <!-- YouTube Video Section -->
-     <section class="py-8 bg-[#E5E5E5]">
-         <div class="max-w-4xl mx-auto px-4 text-center">
-             <h2 class="text-2xl font-light text-gray-800 mb-8 uppercase">See the tool in action</h2>
-             <div class="relative w-full" style="padding-bottom: 56.25%;">
-                <iframe 
-                    class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
-                    src="https://www.youtube.com/embed/5VQWuIJqzlg?si=e9FRCzskhPR8ggS2"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
-             </div>
-         </div>
-     </section>
-
-     <!-- Divider -->
-     <div class="h-px bg-gray-400"></div>
-
-     <!-- Contact Section -->
-    <section class="py-16">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <div class="mb-8">
-                <h2 class="text-xl font-light text-gray-800 mb-4">Interested in learning more?</h2>
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-ink/90 backdrop-blur-md z-50 border-b border-white/5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="#" class="text-2xl font-bold font-display text-fog">Dekal</a>
+            <div class="hidden md:flex items-center gap-8 text-sm">
+                <a href="#features" class="text-white/60 hover:text-white transition">Features</a>
+                <a href="#use-cases" class="text-white/60 hover:text-white transition">Use Cases</a>
+                <a href="#pricing" class="text-white/60 hover:text-white transition">Pricing</a>
+                <a href="#demo" class="text-white/60 hover:text-white transition">Demo</a>
+                <a href="#docs" class="text-white/60 hover:text-white transition">Docs</a>
             </div>
-            
-            <a href="mailto:timothee dot peter @ mac dot com" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-light py-3 px-8 rounded-lg transition duration-200">
-                Contact Us
+            <a href="#" class="hidden md:inline-flex items-center rounded-full border border-accent text-accent font-medium px-5 py-2 text-sm hover:bg-accent/10 transition">
+                Get Started
             </a>
+            <!-- Mobile menu button -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white/60 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+            <a href="#features" class="block text-white/60 hover:text-white transition text-sm">Features</a>
+            <a href="#use-cases" class="block text-white/60 hover:text-white transition text-sm">Use Cases</a>
+            <a href="#pricing" class="block text-white/60 hover:text-white transition text-sm">Pricing</a>
+            <a href="#demo" class="block text-white/60 hover:text-white transition text-sm">Demo</a>
+            <a href="#docs" class="block text-white/60 hover:text-white transition text-sm">Docs</a>
+            <a href="#" class="inline-flex items-center rounded-full border border-accent text-accent font-medium px-5 py-2 text-sm hover:bg-accent/10 transition">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-mesh relative min-h-screen flex items-center pt-20">
+        <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold font-display tracking-tight leading-[1.1] mb-6 max-w-3xl">
+                From idea to validated design in minutes
+            </h1>
+            <p class="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
+                Dekal's code-based kinematics design and multibody physics engine let's you explore hundreds of designs at the speed of thought — with constraints, realtime motion, load analysis and singularity detection built in.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#demo" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    Show Demo
+                </a>
+                <a href="#contact" class="inline-flex items-center gap-2 rounded-lg border border-white/20 text-white/80 font-medium px-6 py-3 text-sm hover:border-white/40 hover:text-white transition">
+                    Talk to us
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Divider -->
-    <div class="h-px bg-black"></div>
+    <!-- Industrial-Grade Design Infrastructure -->
+    <section id="features" class="bg-ink py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="mb-14">
+                <h2 class="text-3xl md:text-5xl font-bold font-display tracking-tight mb-4">
+                    Industrial-Grade<br>Design Infrastructure
+                </h2>
+                <p class="text-white/50 text-base md:text-lg max-w-xl">
+                    Built for engineers who demand precision, speed, and control.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Card 1 -->
+                <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">
+                        Solve for production-ready outputs and specifications automatically.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">
+                        Solve for production-ready outputs and specifications automatically.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">
+                        Solve for production-ready outputs and specifications automatically.
+                    </p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
+                    <div class="mb-4">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <p class="text-sm text-white/50 leading-relaxed">
+                        Solve for production-ready outputs and specifications automatically.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="use-cases" class="bg-ink py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-bold font-display tracking-tight mb-14">
+                How it works
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <!-- Left: Accordion -->
+                <div class="flex flex-col gap-3" id="how-accordion">
+                    <!-- Item: Manufacturing -->
+                    <div class="accordion-item" data-key="manufacturing">
+                        <button onclick="toggleAccordion('manufacturing')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                            Manufacturing
+                            <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
+                        </button>
+                        <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-accent font-semibold text-base font-display">Manufacturing</span>
+                                <button onclick="toggleAccordion('manufacturing')" class="cursor-pointer">
+                                    <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+                                </button>
+                            </div>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Existing CAD wasn't meant to design robotic systems. Teams are forced to learn multiple tools, port data manually between them and lose traction on how design parameters impact structure performance.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item: multibody physics -->
+                    <div class="accordion-item" data-key="multibody">
+                        <button onclick="toggleAccordion('multibody')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                            multibody physics
+                            <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
+                        </button>
+                        <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-accent font-semibold text-base font-display">multibody physics</span>
+                                <button onclick="toggleAccordion('multibody')" class="cursor-pointer">
+                                    <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+                                </button>
+                            </div>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Simulate rigid and flexible body dynamics with full multibody physics. Validate motion, forces, and torques across your entire kinematic chain in real time.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Item: kinematics constraint system -->
+                    <div class="accordion-item" data-key="kinematics">
+                        <button onclick="toggleAccordion('kinematics')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                            kinematics constraint system
+                            <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
+                        </button>
+                        <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-accent font-semibold text-base font-display">kinematics constraint system</span>
+                                <button onclick="toggleAccordion('kinematics')" class="cursor-pointer">
+                                    <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+                                </button>
+                            </div>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Define joints, limits, and degrees of freedom as explicit constraints. The solver ensures consistency across your entire assembly at every step.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- And more pill -->
+                    <div class="accordion-item" data-key="more">
+                        <button onclick="toggleAccordion('more')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                            And more!
+                            <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
+                        </button>
+                        <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-accent font-semibold text-base font-display">And more!</span>
+                                <button onclick="toggleAccordion('more')" class="cursor-pointer">
+                                    <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
+                                </button>
+                            </div>
+                            <p class="text-sm text-white/60 leading-relaxed">
+                                Automated URDF export, version-diffable designs, real-time 3D visualization, BOM generation, and a growing set of integrations for your engineering workflow.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function toggleAccordion(key) {
+                        document.querySelectorAll('.accordion-item').forEach(function(item) {
+                            var body = item.querySelector('.accordion-body');
+                            var pill = item.querySelector('.accordion-pill');
+                            if (item.dataset.key === key && body.classList.contains('hidden')) {
+                                body.classList.remove('hidden');
+                                pill.classList.add('hidden');
+                            } else {
+                                body.classList.add('hidden');
+                                pill.classList.remove('hidden');
+                            }
+                        });
+                    }
+                </script>
+                <!-- Right: Image -->
+                <div class="flex items-start justify-center">
+                    <img src="render3d.png" alt="Dekal 3D Render" class="w-full max-w-md rounded-2xl shadow-2xl border border-border">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Solve (Why) -->
+    <section id="pricing" class="bg-ink py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+                <div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-display tracking-tight leading-tight">
+                        What we solve<br>(Why)
+                    </h2>
+                </div>
+                <div>
+                    <p class="text-base md:text-lg text-white/70 leading-relaxed mb-6">
+                        Dekal provides a complete solution to design, visualize and test a multibody kinematics structure under the same tool, unlocking iteration speed unheard before.
+                    </p>
+                    <p class="text-sm text-white/40 leading-relaxed">
+                        Existing CAD wasn't meant to design robotic systems. Teams are forced to learn multiple tools, port data manually between them and lose traction on how design parameters impact structure performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p>&copy; 2025 Dekal. All rights reserved.</p>
+    <footer class="bg-ink border-t border-border pt-16 pb-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Top: Logo + Social -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-14">
+                <div class="lg:col-span-1">
+                    <h3 class="text-2xl font-bold font-display text-fog mb-3">Dekal</h3>
+                    <p class="text-sm text-white/40 leading-relaxed mb-5">
+                        The next-generation hardware design engine for robotics and automation.
+                    </p>
+                    <div class="flex gap-2.5">
+                        <!-- Social circles -->
+                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
+                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.384 4.482A13.944 13.944 0 011.671 3.149a4.916 4.916 0 001.523 6.574 4.897 4.897 0 01-2.229-.616v.062a4.918 4.918 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 14.002-7.496 14.002-13.986 0-.21 0-.423-.015-.634A9.935 9.935 0 0024 4.557z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
+                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
+                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
+                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
+                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Footer columns -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Product</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Features</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Changelog</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Company</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" class="text-white/60 hover:text-white transition">About</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Press Kit</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Resources</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Community</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Tutorials</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">API Reference</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Support</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Legal</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Privacy</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Terms</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Security</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-white transition">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Bottom bar -->
+            <div class="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
+                <p>&copy; 2025 Dekal. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <span>v1.0</span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
+                        All systems operational
+                    </span>
+                </div>
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
