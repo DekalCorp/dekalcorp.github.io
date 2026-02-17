@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dekal — Robotics Design Workflow</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,7 +12,6 @@
                 extend: {
                     fontFamily: {
                         'sans': ['IBM Plex Sans', 'system-ui', 'sans-serif'],
-                        'display': ['Space Grotesk', 'IBM Plex Sans', 'sans-serif']
                     },
                     colors: {
                         ink: '#0A0A0A',
@@ -82,7 +81,7 @@
     <!-- Sticky Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-ink/90 backdrop-blur-md z-50 border-b border-white/5">
         <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="#" class="text-2xl font-bold font-display text-fog">Dekal</a>
+            <a href="#" class="text-2xl font-bold text-fog">Dekal</a>
             <div class="hidden md:flex items-center gap-8 text-sm">
                 <a href="#features" class="text-white/60 hover:text-white transition">Features</a>
                 <a href="#use-cases" class="text-white/60 hover:text-white transition">Use Cases</a>
@@ -112,11 +111,11 @@
     <!-- Hero Section -->
     <section class="hero-mesh relative min-h-screen flex items-center pt-20">
         <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold font-display tracking-tight leading-[1.1] mb-6 max-w-3xl">
-                From idea to validated design in minutes
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-3xl">
+                From idea to optimal mechanical design in minutes
             </h1>
             <p class="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
-                Dekal's code-based kinematics design and multibody physics engine let's you explore hundreds of designs at the speed of thought — with constraints, realtime motion, load analysis and singularity detection built in.
+                Dekal combines CAD design and physics simulation into a single, differentiable tool. Combining design and simulation drastically accelerates the design process. Differentiability brings gradient descent optimization to mechanical design.
             </p>
             <div class="flex flex-wrap gap-4">
                 <a href="#demo" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
@@ -134,7 +133,7 @@
     <section id="features" class="bg-ink py-24">
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-14">
-                <h2 class="text-3xl md:text-5xl font-bold font-display tracking-tight mb-4">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
                     Industrial-Grade<br>Design Infrastructure
                 </h2>
                 <p class="text-white/50 text-base md:text-lg max-w-xl">
@@ -149,7 +148,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
                         Solve for production-ready outputs and specifications automatically.
                     </p>
@@ -161,7 +160,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
                         Solve for production-ready outputs and specifications automatically.
                     </p>
@@ -173,7 +172,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
                         Solve for production-ready outputs and specifications automatically.
                     </p>
@@ -185,7 +184,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold font-display text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
                         Solve for production-ready outputs and specifications automatically.
                     </p>
@@ -197,7 +196,7 @@
     <!-- How It Works -->
     <section id="use-cases" class="bg-ink py-24">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold font-display tracking-tight mb-14">
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-14">
                 How it works
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -211,7 +210,7 @@
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base font-display">Manufacturing</span>
+                                <span class="text-accent font-semibold text-base">Manufacturing</span>
                                 <button onclick="toggleAccordion('manufacturing')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
@@ -229,7 +228,7 @@
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base font-display">multibody physics</span>
+                                <span class="text-accent font-semibold text-base">multibody physics</span>
                                 <button onclick="toggleAccordion('multibody')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
@@ -247,7 +246,7 @@
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base font-display">kinematics constraint system</span>
+                                <span class="text-accent font-semibold text-base">kinematics constraint system</span>
                                 <button onclick="toggleAccordion('kinematics')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
@@ -265,7 +264,7 @@
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base font-display">And more!</span>
+                                <span class="text-accent font-semibold text-base">And more!</span>
                                 <button onclick="toggleAccordion('more')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
@@ -304,7 +303,7 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
                 <div>
-                    <h2 class="text-3xl md:text-5xl font-bold font-display tracking-tight leading-tight">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
                         What we solve<br>(Why)
                     </h2>
                 </div>
@@ -326,7 +325,7 @@
             <!-- Top: Logo + Social -->
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-14">
                 <div class="lg:col-span-1">
-                    <h3 class="text-2xl font-bold font-display text-fog mb-3">Dekal</h3>
+                    <h3 class="text-2xl font-bold text-fog mb-3">Dekal</h3>
                     <p class="text-sm text-white/40 leading-relaxed mb-5">
                         The next-generation hardware design engine for robotics and automation.
                     </p>
