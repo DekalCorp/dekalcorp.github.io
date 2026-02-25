@@ -112,15 +112,16 @@
     <section class="hero-mesh relative min-h-screen flex items-center pt-20">
         <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-3xl">
-                From idea to optimal mechanical design in minutes
+                From idea to kinematic design in milliseconds
             </h1>
             <p class="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
-                Dekal combines CAD design and physics simulation into a single, differentiable tool. Combining design and simulation drastically accelerates the design process. Differentiability brings gradient descent optimization to mechanical design.
+                Dekal is the fastest tool to design and analyze kinematic structures. 
+                Dekal combines a <b>code based design interface</b> and a <b>differentiable simulation engine</b> into the same tool, giving you <b>critical physics insights in milliseconds</b> rather than days. 
             </p>
             <div class="flex flex-wrap gap-4">
                 <a href="#demo" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    Show Demo
+                    Try the Demo
                 </a>
                 <a href="#contact" class="inline-flex items-center gap-2 rounded-lg border border-white/20 text-white/80 font-medium px-6 py-3 text-sm hover:border-white/40 hover:text-white transition">
                     Talk to us
@@ -205,7 +206,7 @@
                     <!-- Item: Manufacturing -->
                     <div class="accordion-item" data-key="manufacturing">
                         <button onclick="toggleAccordion('manufacturing')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
-                            Manufacturing
+                            Code based design interface
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
@@ -216,14 +217,14 @@
                                 </button>
                             </div>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Existing CAD wasn't meant to design robotic systems. Teams are forced to learn multiple tools, port data manually between them and lose traction on how design parameters impact structure performance.
+                                Dekal let's you describe your kinematic structure through code. This let's you rapidely generate your design and variations of it. Use your favorite AI Copilot to accelerate the process.
                             </p>
                         </div>
                     </div>
                     <!-- Item: multibody physics -->
                     <div class="accordion-item" data-key="multibody">
-                        <button onclick="toggleAccordion('multibody')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
-                            multibody physics
+                        <button onclick="toggleAccordion('multibody')" class="capitalize accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                            Compiler & Automatic Differentiation
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
@@ -234,13 +235,14 @@
                                 </button>
                             </div>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Simulate rigid and flexible body dynamics with full multibody physics. Validate motion, forces, and torques across your entire kinematic chain in real time.
+                                Similar to machine learning frameworks like PyTorch or JAX, the Dekal compiler generates a differentiable graph of your kinematic description.
+                                This is both used to power the kinematic and load solvers as well as to enable gradient descent design optimization in the future.
                             </p>
                         </div>
                     </div>
                     <!-- Item: kinematics constraint system -->
                     <div class="accordion-item" data-key="kinematics">
-                        <button onclick="toggleAccordion('kinematics')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                        <button onclick="toggleAccordion('kinematics')" class="capitalize accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
                             kinematics constraint system
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
@@ -252,25 +254,26 @@
                                 </button>
                             </div>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Define joints, limits, and degrees of freedom as explicit constraints. The solver ensures consistency across your entire assembly at every step.
+                                Dekal includes a powerful constraint system which let's you design any kinematic structure you can think of, such as pistons, ropes, pulleys, capstan, gears and linkage systems.
                             </p>
                         </div>
                     </div>
                     <!-- And more pill -->
                     <div class="accordion-item" data-key="more">
                         <button onclick="toggleAccordion('more')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
-                            And more!
+                            Load Solver
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base">And more!</span>
+                                <span class="text-accent font-semibold text-base">Load Solver</span>
                                 <button onclick="toggleAccordion('more')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
                             </div>
                             <p class="text-sm text-white/60 leading-relaxed">
-                                Automated URDF export, version-diffable designs, real-time 3D visualization, BOM generation, and a growing set of integrations for your engineering workflow.
+                                Dekal uses lagrangian mechanics to resolves loads within your kinematic structures. 
+                                Define a set of static loads on structure and dekal will resolves all the reaction forces and torques, which can be plotted for review.
                             </p>
                         </div>
                     </div>
@@ -304,15 +307,18 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
                 <div>
                     <h2 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-                        What we solve<br>(Why)
+                        Why build Dekal?
                     </h2>
                 </div>
                 <div>
                     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-6">
-                        Dekal provides a complete solution to design, visualize and test a multibody kinematics structure under the same tool, unlocking iteration speed unheard before.
+                        <p class="text-base md:text-lg text-white/70 leading-relaxed mb-6">
+                            Dekal is built by a mechanical engineer who became frustrated with the status-quo in engineering software.
+                            While working in the drone and automotive industry, existing software became the key limiting factor towards faster design iteration speeds.
+                        </p>
                     </p>
                     <p class="text-sm text-white/40 leading-relaxed">
-                        Existing CAD wasn't meant to design robotic systems. Teams are forced to learn multiple tools, port data manually between them and lose traction on how design parameters impact structure performance.
+                        Dekal uses the latest technology in compilers, machine learning and 3D rendering to break down those barriers for fellow engineers, working on the next exciting products.
                     </p>
                 </div>
             </div>
