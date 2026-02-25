@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Dekal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Dekal Sans', 'IBM Plex Sans', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#0A0A0A',
+                        fog: '#F1F0EB',
+                        card: '#1A1A1A',
+                        border: '#2A2A2A',
+                        accent: '#4ADE80',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Dekal Sans';
+            src: url('fonts/DekalSansVar-VariableVF.woff2') format('woff2');
+            font-weight: 100 700;
+            font-display: swap;
+        }
+    </style>
+</head>
+<body class="bg-ink font-sans text-fog min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-ink/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+            <a href="/" class="text-2xl font-bold text-fog">Dekal</a>
+            <a href="/" class="text-sm text-white/60 hover:text-white transition">&larr; Back</a>
+        </div>
+    </nav>
+
+    <!-- Contact Form -->
+    <main class="flex-1 flex items-center justify-center px-6 py-24">
+        <div class="w-full max-w-lg">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-center">Get in touch</h1>
+            <p class="text-white/50 text-sm text-center mb-10">Questions, feedback, or partnership inquiries — we'd love to hear from you.</p>
+            <form action="https://formspree.io/f/mykdlaqo" method="POST" class="flex flex-col gap-4">
+                <input type="email" name="email" required placeholder="Your email" class="bg-card border border-border rounded-lg px-4 py-3 text-sm text-fog placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition">
+                <textarea name="message" required rows="5" placeholder="Your message" class="bg-card border border-border rounded-lg px-4 py-3 text-sm text-fog placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition resize-none"></textarea>
+                <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

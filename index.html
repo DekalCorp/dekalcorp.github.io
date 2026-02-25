@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dekal — Robotics Design Workflow</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'sans': ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+                        'sans': ['Dekal Sans', 'IBM Plex Sans', 'system-ui', 'sans-serif'],
                     },
                     colors: {
                         ink: '#0A0A0A',
@@ -25,6 +24,12 @@
         }
     </script>
     <style>
+        @font-face {
+            font-family: 'Dekal Sans';
+            src: url('fonts/DekalSansVar-VariableVF.woff2') format('woff2');
+            font-weight: 100 700;
+            font-display: swap;
+        }
         .hero-mesh {
             background:
                 repeating-linear-gradient(
@@ -83,14 +88,13 @@
         <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
             <a href="#" class="text-2xl font-bold text-fog">Dekal</a>
             <div class="hidden md:flex items-center gap-8 text-sm">
-                <a href="#features" class="text-white/60 hover:text-white transition">Features</a>
-                <a href="#use-cases" class="text-white/60 hover:text-white transition">Use Cases</a>
-                <a href="#pricing" class="text-white/60 hover:text-white transition">Pricing</a>
-                <a href="#demo" class="text-white/60 hover:text-white transition">Demo</a>
-                <a href="#docs" class="text-white/60 hover:text-white transition">Docs</a>
+                <a href="#features" class="text-white/60 hover:text-white transition">Capabilities</a>
+                <a href="#use-cases" class="text-white/60 hover:text-white transition">Features</a>
+                <a href="https://demo.dekal.sh/help" class="text-white/60 hover:text-white transition">Docs</a>
+                <a href="/contact.html" class="text-white/60 hover:text-white transition">Contact</a>
             </div>
-            <a href="#" class="hidden md:inline-flex items-center rounded-full border border-accent text-accent font-medium px-5 py-2 text-sm hover:bg-accent/10 transition">
-                Get Started
+            <a href="https://demo.dekal.sh" class="hidden md:inline-flex items-center rounded-full border border-accent text-accent font-medium px-5 py-2 text-sm hover:bg-accent/10 transition">
+                Try the Demo
             </a>
             <!-- Mobile menu button -->
             <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white/60 hover:text-white">
@@ -99,31 +103,36 @@
         </div>
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
-            <a href="#features" class="block text-white/60 hover:text-white transition text-sm">Features</a>
-            <a href="#use-cases" class="block text-white/60 hover:text-white transition text-sm">Use Cases</a>
-            <a href="#pricing" class="block text-white/60 hover:text-white transition text-sm">Pricing</a>
-            <a href="#demo" class="block text-white/60 hover:text-white transition text-sm">Demo</a>
-            <a href="#docs" class="block text-white/60 hover:text-white transition text-sm">Docs</a>
-            <a href="#" class="inline-flex items-center rounded-full border border-accent text-accent font-medium px-5 py-2 text-sm hover:bg-accent/10 transition">Get Started</a>
+            <a href="#features" class="block text-white/60 hover:text-white transition text-sm">Capabilities</a>
+            <a href="#use-cases" class="block text-white/60 hover:text-white transition text-sm">Features</a>
+            <a href="https://demo.dekal.sh/help" class="block text-white/60 hover:text-white transition text-sm">Docs</a>
+            <a href="/contact.html" class="block text-white/60 hover:text-white transition text-sm">Contact</a>
+            <a href="https://demo.dekal.sh" class="inline-flex items-center rounded-full border border-accent text-accent font-medium px-5 py-2 text-sm hover:bg-accent/10 transition">Try the Demo</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-mesh relative min-h-screen flex items-center pt-20">
+    <section class="hero-mesh relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Key visual animation -->
+        <video class="absolute inset-0 w-full h-full object-cover opacity-50" autoplay loop muted playsinline>
+            <source src="key-visual.mp4" type="video/mp4">
+        </video>
+        <!-- Dark overlay behind text, fading out radially -->
+        <div class="absolute inset-0 z-[5]" style="background: radial-gradient(ellipse 60% 70% at 35% 50%, rgba(10,10,10,1) 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 70%)"></div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-3xl">
                 From idea to kinematic design in milliseconds
             </h1>
             <p class="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
-                Dekal is the fastest tool to design and analyze kinematic structures. 
-                Dekal combines a <b>code based design interface</b> and a <b>differentiable simulation engine</b> into the same tool, giving you <b>critical physics insights in milliseconds</b> rather than days. 
+                Dekal is the fastest tool to design and analyze kinematic structures.
+                Dekal combines a <b>code based design interface</b> and a <b>differentiable simulation engine</b> into the same tool, giving you <b>critical physics insights in milliseconds</b> rather than days.
             </p>
             <div class="flex flex-wrap gap-4">
-                <a href="#demo" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
+                <a href="https://demo.dekal.sh" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                     Try the Demo
                 </a>
-                <a href="#contact" class="inline-flex items-center gap-2 rounded-lg border border-white/20 text-white/80 font-medium px-6 py-3 text-sm hover:border-white/40 hover:text-white transition">
+                <a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg border border-white/20 text-white/80 font-medium px-6 py-3 text-sm hover:border-white/40 hover:text-white transition">
                     Talk to us
                 </a>
             </div>
@@ -135,59 +144,59 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-14">
                 <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-                    Industrial-Grade<br>Design Infrastructure
+                    A powerful toolkit <br>for your kinematic designs
                 </h2>
                 <p class="text-white/50 text-base md:text-lg max-w-xl">
-                    Built for engineers who demand precision, speed, and control.
+                    Design, analyze, compare and export - all within the same tool.
                 </p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <!-- Card 1 -->
+                <!-- Card 1: Generate Kinematic Structures -->
                 <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
                     <div class="mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Generate Kinematic Structures</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
-                        Solve for production-ready outputs and specifications automatically.
+                        Spin up complex kinematic chains in seconds, not days. Describe it in code and watch it come alive instantly.
                     </p>
                 </div>
-                <!-- Card 2 -->
+                <!-- Card 2: Evaluate Capabilities -->
                 <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
                     <div class="mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Evaluate Kinematic Capabilities</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
-                        Solve for production-ready outputs and specifications automatically.
+                        Instantly map workspaces, reachability, and motion limits. Know exactly what your design can do before you build it.
                     </p>
                 </div>
-                <!-- Card 3 -->
+                <!-- Card 3: Load Testing -->
                 <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
                     <div class="mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-13.5 0c-1.01.143-2.01.317-3 .52m3-.52L2.63 15.696c-.122.499.106 1.028.589 1.202a5.989 5.989 0 002.031.352 5.989 5.989 0 002.031-.352c.483-.174.711-.703.59-1.202L5.25 4.971z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Static Load Testing</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
-                        Solve for production-ready outputs and specifications automatically.
+                        Throw real-world forces at any configuration and get every reaction force and torque resolved across every joint — instantly.
                     </p>
                 </div>
-                <!-- Card 4 -->
+                <!-- Card 4: Drive CAD -->
                 <div class="bg-card rounded-xl p-6 border border-border hover:border-white/10 transition">
                     <div class="mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/>
                         </svg>
                     </div>
-                    <h3 class="text-base font-semibold text-fog mb-2">Manufacturing</h3>
+                    <h3 class="text-base font-semibold text-fog mb-2">Drive CAD Design</h3>
                     <p class="text-sm text-white/50 leading-relaxed">
-                        Solve for production-ready outputs and specifications automatically.
+                        Push your validated designs straight into CAD to help drive your design process. Or load your existing CAD design for further analysis.
                     </p>
                 </div>
             </div>
@@ -198,21 +207,21 @@
     <section id="use-cases" class="bg-ink py-24">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-14">
-                How it works
+                What's under the hood?
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                 <!-- Left: Accordion -->
                 <div class="flex flex-col gap-3" id="how-accordion">
-                    <!-- Item: Manufacturing -->
-                    <div class="accordion-item" data-key="manufacturing">
-                        <button onclick="toggleAccordion('manufacturing')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                    <!-- Item: Code Based Design Interface -->
+                    <div class="accordion-item" data-key="code" data-image="code.png">
+                        <button onclick="toggleAccordion('code')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
                             Code based design interface
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base">Manufacturing</span>
-                                <button onclick="toggleAccordion('manufacturing')" class="cursor-pointer">
+                                <span class="text-accent font-semibold text-base">Code Based Design Interface</span>
+                                <button onclick="toggleAccordion('code')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
                             </div>
@@ -221,16 +230,16 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Item: multibody physics -->
-                    <div class="accordion-item" data-key="multibody">
-                        <button onclick="toggleAccordion('multibody')" class="capitalize accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                    <!-- Item: Compiler & Automatic Differentiation -->
+                    <div class="accordion-item" data-key="autodiff" data-image="autodiff.png">
+                        <button onclick="toggleAccordion('autodiff')" class="capitalize accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
                             Compiler & Automatic Differentiation
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base">multibody physics</span>
-                                <button onclick="toggleAccordion('multibody')" class="cursor-pointer">
+                                <span class="text-accent font-semibold text-base">Compiler & Automatic Differentiation</span>
+                                <button onclick="toggleAccordion('autodiff')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
                             </div>
@@ -240,15 +249,15 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Item: kinematics constraint system -->
-                    <div class="accordion-item" data-key="kinematics">
+                    <!-- Item: Kinematics Constraint System -->
+                    <div class="accordion-item" data-key="kinematics" data-image="naked_spherical.gif">
                         <button onclick="toggleAccordion('kinematics')" class="capitalize accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
                             kinematics constraint system
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="text-accent font-semibold text-base">kinematics constraint system</span>
+                                <span class="text-accent font-semibold text-base">Kinematics Constraint System</span>
                                 <button onclick="toggleAccordion('kinematics')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
@@ -258,16 +267,16 @@
                             </p>
                         </div>
                     </div>
-                    <!-- And more pill -->
-                    <div class="accordion-item" data-key="more">
-                        <button onclick="toggleAccordion('more')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
+                    <!-- Item: Load Solver -->
+                    <div class="accordion-item" data-key="loadsolver" data-image="graph.png">
+                        <button onclick="toggleAccordion('loadsolver')" class="accordion-pill inline-flex items-center gap-2 bg-accent/15 text-accent rounded-full px-5 py-2.5 text-sm font-medium w-fit border border-accent/20 cursor-pointer hover:bg-accent/20 transition">
                             Load Solver
                             <svg class="accordion-icon-plus w-4 h-4 opacity-70" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M12 8v8M8 12h8"/></svg>
                         </button>
                         <div class="accordion-body hidden bg-accent/10 border border-accent/25 rounded-2xl p-6 mt-2">
                             <div class="flex items-center justify-between mb-4">
                                 <span class="text-accent font-semibold text-base">Load Solver</span>
-                                <button onclick="toggleAccordion('more')" class="cursor-pointer">
+                                <button onclick="toggleAccordion('loadsolver')" class="cursor-pointer">
                                     <svg class="w-5 h-5 text-accent/60 hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" d="M15 9l-6 6M9 9l6 6"/></svg>
                                 </button>
                             </div>
@@ -280,29 +289,38 @@
                 </div>
                 <script>
                     function toggleAccordion(key) {
+                        var img = document.getElementById('accordion-image');
+                        var opened = false;
                         document.querySelectorAll('.accordion-item').forEach(function(item) {
                             var body = item.querySelector('.accordion-body');
                             var pill = item.querySelector('.accordion-pill');
                             if (item.dataset.key === key && body.classList.contains('hidden')) {
                                 body.classList.remove('hidden');
                                 pill.classList.add('hidden');
+                                if (item.dataset.image && img) {
+                                    img.src = item.dataset.image;
+                                }
+                                opened = true;
                             } else {
                                 body.classList.add('hidden');
                                 pill.classList.remove('hidden');
                             }
                         });
+                        if (!opened && img) {
+                            img.src = 'spherical.gif';
+                        }
                     }
                 </script>
                 <!-- Right: Image -->
                 <div class="flex items-start justify-center">
-                    <img src="render3d.png" alt="Dekal 3D Render" class="w-full max-w-md rounded-2xl shadow-2xl border border-border">
+                    <img id="accordion-image" src="spherical.gif" alt="Dekal Feature" class="w-full max-w-md rounded-2xl shadow-2xl border border-border">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- What We Solve (Why) -->
-    <section id="pricing" class="bg-ink py-24">
+    <section class="bg-ink py-24">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
                 <div>
@@ -312,10 +330,8 @@
                 </div>
                 <div>
                     <p class="text-base md:text-lg text-white/70 leading-relaxed mb-6">
-                        <p class="text-base md:text-lg text-white/70 leading-relaxed mb-6">
-                            Dekal is built by a mechanical engineer who became frustrated with the status-quo in engineering software.
-                            While working in the drone and automotive industry, existing software became the key limiting factor towards faster design iteration speeds.
-                        </p>
+                        Dekal is built by a mechanical engineer who became frustrated with the status-quo in engineering design software.
+                        While working in the drone and automotive industry, existing software became the key limiting factor towards faster design iteration speeds.
                     </p>
                     <p class="text-sm text-white/40 leading-relaxed">
                         Dekal uses the latest technology in compilers, machine learning and 3D rendering to break down those barriers for fellow engineers, working on the next exciting products.
@@ -325,87 +341,26 @@
         </div>
     </section>
 
+    <!-- Contact CTA -->
+    <section class="bg-ink py-24">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-4">Interested? Let's talk.</h2>
+            <p class="text-white/50 text-sm mb-8 max-w-md mx-auto">Have questions, feedback, or want to explore a partnership? We'd love to hear from you.</p>
+            <a href="/contact.html" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-green-300 transition">
+                Contact Us
+            </a>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-ink border-t border-border pt-16 pb-8">
-        <div class="max-w-6xl mx-auto px-6">
-            <!-- Top: Logo + Social -->
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-14">
-                <div class="lg:col-span-1">
-                    <h3 class="text-2xl font-bold text-fog mb-3">Dekal</h3>
-                    <p class="text-sm text-white/40 leading-relaxed mb-5">
-                        The next-generation hardware design engine for robotics and automation.
-                    </p>
-                    <div class="flex gap-2.5">
-                        <!-- Social circles -->
-                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
-                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.384 4.482A13.944 13.944 0 011.671 3.149a4.916 4.916 0 001.523 6.574 4.897 4.897 0 01-2.229-.616v.062a4.918 4.918 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 14.002-7.496 14.002-13.986 0-.21 0-.423-.015-.634A9.935 9.935 0 0024 4.557z"/></svg>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
-                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
-                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
-                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-accent/15 border border-accent/25 flex items-center justify-center hover:bg-accent/25 transition">
-                            <svg class="w-3.5 h-3.5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- Footer columns -->
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Product</h4>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Features</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Pricing</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Documentation</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Changelog</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Roadmap</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Company</h4>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="#" class="text-white/60 hover:text-white transition">About</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Careers</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Press Kit</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Resources</h4>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Community</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Tutorials</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">API Reference</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Support</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Status</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">Legal</h4>
-                    <ul class="space-y-2.5 text-sm">
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Privacy</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Terms</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Security</a></li>
-                        <li><a href="#" class="text-white/60 hover:text-white transition">Compliance</a></li>
-                    </ul>
-                </div>
+    <footer class="bg-ink border-t border-border py-8">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-sm font-semibold text-fog">Dekal</span>
+            <div class="flex items-center gap-6 text-sm">
+                <a href="https://demo.dekal.sh" class="text-white/50 hover:text-white transition">Demo</a>
+                <a href="/contact.html" class="text-white/50 hover:text-white transition">Contact</a>
             </div>
-            <!-- Bottom bar -->
-            <div class="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/30">
-                <p>&copy; 2025 Dekal. All rights reserved.</p>
-                <div class="flex items-center gap-6">
-                    <span>v1.0</span>
-                    <span class="flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-accent inline-block"></span>
-                        All systems operational
-                    </span>
-                </div>
-            </div>
+            <span class="text-xs text-white/30">&copy; 2026 Dekal</span>
         </div>
     </footer>
 
