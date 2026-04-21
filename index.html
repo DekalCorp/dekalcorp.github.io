@@ -122,11 +122,10 @@
         <div class="absolute inset-0 z-[5]" style="background: radial-gradient(ellipse 60% 70% at 35% 50%, rgba(10,10,10,1) 0%, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0) 70%)"></div>
         <div class="relative z-10 max-w-6xl mx-auto px-6 py-24">
             <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-3xl">
-                From idea to kinematic design in milliseconds
+                Dekal
             </h1>
             <p class="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mb-10">
-                Dekal is the fastest tool to design and analyze kinematic structures.
-                Dekal combines a <b>code based design interface</b> and a <b>differentiable simulation engine</b> into the same tool, giving you <b>critical physics insights in milliseconds</b> rather than days.
+                An implicit modeling engine for <b>fast mechanical design iteration</b>
             </p>
             <div class="flex flex-wrap gap-4">
                 <a href="https://demo.dekal.sh" class="inline-flex items-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-accent-dark transition">
@@ -137,6 +136,60 @@
                     Talk to us
                 </a>
             </div>
+        </div>
+    </section>
+
+    <section>
+        Iterating on mechanical systems with conventional CAD is inefficient. Models take minutes to rebuild and break with small design changes.
+        Dekal solves this with implicit modeling, generating robust parametric geometry in milliseconds.
+    </section>
+
+    <section>
+        How does it work?
+        <div class="grid grid-cols-2 gap-5">
+            <div>
+                Conventional "BRep" CAD:
+                - Object is defined by a collection of 2D surfaces mapped to the 3D space
+                - Requires slow sequential execution
+                - Breaks when topology changes
+            </div>
+            <div>
+                Implicit CAD:
+                - Object is defined through functions that fold the 4th dimension onto the 3D space
+                - Robust against any topology change
+                - Fast by being massively paralelizable on the GPU
+            </div>
+        </div>
+    </section>
+
+    <section>
+        FAQ:
+        <div>
+            Can I generate models using AI / LLMs?
+        </div>
+        <div>
+            Hwo does modeling using implicits look like?
+        </div>
+        <div>
+            Why is it called "implicit"?
+        </div>
+        <div>
+            Does Dekal have a constraint solver?
+        </div>
+        <div>
+            What design interface?
+        </div>
+        <div>
+            What files can I export? Does Dekal support STEP files?
+        </div>
+        <div>
+            Where does implicit modeling shine compared to BRep CAD?
+        </div>
+        <div>
+            What are the limitations of implicit modeling?
+        </div>
+        <div>
+            How can I simulate my design?
         </div>
     </section>
 
