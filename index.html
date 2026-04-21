@@ -64,11 +64,13 @@
             letter-spacing: -0.04em;
             margin: 0 0 20px;
             line-height: 0.95;
+            color: var(--accent-dark);
         }
 
         .hero .tagline {
             font-size: 18px;
-            color: var(--text-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
             margin: 0;
             max-width: 520px;
         }
@@ -86,6 +88,7 @@
             margin-top: 28px;
             display: flex;
             flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
             gap: 0;
             font-size: 15px;
@@ -104,6 +107,15 @@
 
         .hero-links a:hover {
             color: var(--text-primary);
+        }
+
+        .hero-links a.primary {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        .hero-links a.primary:hover {
+            color: #3f5c44;
         }
 
         .tool-preview {
@@ -243,7 +255,7 @@
 
         .footer-brand {
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--accent-dark);
         }
 
         .footer-links {
@@ -272,7 +284,7 @@
         <p class="tagline">Fast mechanical design iteration.</p>
         <nav class="hero-links">
             <a href="https://github.com/dekalcorp">Source</a>
-            <a href="https://demo.dekal.sh">Live demo</a>
+            <a href="https://demo.dekal.sh" class="primary">Live demo</a>
             <a href="https://demo.dekal.sh/help">Docs</a>
             <a href="#faq">FAQ</a>
             <a href="/contact.html">Contact</a>
