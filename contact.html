@@ -4,26 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact — Dekal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Dekal Sans', 'IBM Plex Sans', 'system-ui', 'sans-serif'],
-                    },
-                    colors: {
-                        ink: '#0A0A0A',
-                        fog: '#F1F0EB',
-                        card: '#1A1A1A',
-                        border: '#2A2A2A',
-                        accent: '#80BE8C',
-                        'accent-dark': '#55775C',
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         @font-face {
             font-family: 'Dekal Sans';
@@ -31,32 +11,231 @@
             font-weight: 100 700;
             font-display: swap;
         }
+
+        :root {
+            --bg-page: #FEFCF3;
+            --bg-surface: #F5F0E4;
+            --border: #D5D0C4;
+            --text-primary: #333;
+            --text-secondary: #555;
+            --text-muted: #666;
+            --accent: #80BE8C;
+            --accent-dark: #55775C;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-page);
+            color: var(--text-primary);
+            font-family: 'Dekal Sans', system-ui, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: var(--accent-dark);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        a:hover {
+            color: var(--text-primary);
+        }
+
+        .topbar {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 28px;
+        }
+
+        .topbar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 15px;
+        }
+
+        .topbar-brand {
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .topbar-back {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .topbar-back:hover {
+            color: var(--text-primary);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 28px;
+        }
+
+        .form-wrap {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin: 0 0 12px;
+            text-align: center;
+        }
+
+        .intro {
+            color: var(--text-secondary);
+            font-size: 16px;
+            text-align: center;
+            margin: 0 0 40px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        input, textarea {
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-primary);
+            background: var(--bg-page);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            outline: none;
+            transition: border-color 120ms ease;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        button {
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            background: var(--accent-dark);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 120ms ease;
+            margin-top: 4px;
+        }
+
+        button:hover {
+            background: #3f5c44;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 24px 28px;
+            background: var(--bg-page);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 32px; }
+            main { padding: 48px 22px; }
+        }
     </style>
 </head>
-<body class="bg-ink font-sans text-fog min-h-screen flex flex-col">
-
-    <!-- Navigation -->
-    <nav class="bg-ink/90 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-            <a href="/" class="text-2xl font-bold text-fog">Dekal</a>
-            <a href="/" class="text-sm text-white/60 hover:text-white transition">&larr; Back</a>
+<body>
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <a href="/" class="topbar-brand">Dekal</a>
+            <a href="/" class="topbar-back">&larr; Back</a>
         </div>
     </nav>
 
-    <!-- Contact Form -->
-    <main class="flex-1 flex items-center justify-center px-6 py-24">
-        <div class="w-full max-w-lg">
-            <h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-center">Get in touch</h1>
-            <p class="text-white/50 text-sm text-center mb-10">Questions, feedback, or partnership inquiries — we'd love to hear from you.</p>
-            <form action="https://formspree.io/f/mykdlaqo" method="POST" class="flex flex-col gap-4">
-                <input type="email" name="email" required placeholder="Your email" class="bg-card border border-border rounded-lg px-4 py-3 text-sm text-fog placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition">
-                <textarea name="message" required rows="5" placeholder="Your message" class="bg-card border border-border rounded-lg px-4 py-3 text-sm text-fog placeholder:text-white/30 focus:outline-none focus:border-accent/50 transition resize-none"></textarea>
-                <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-accent text-ink font-medium px-6 py-3 text-sm hover:bg-accent-dark transition">
-                    Send Message
-                </button>
+    <main>
+        <div class="form-wrap">
+            <h1>Get in touch</h1>
+            <p class="intro">Questions, feedback, or partnership inquiries — we'd love to hear from you.</p>
+            <form action="https://formspree.io/f/mykdlaqo" method="POST">
+                <input type="email" name="email" required placeholder="Your email">
+                <textarea name="message" required rows="6" placeholder="Your message"></textarea>
+                <button type="submit">Send message</button>
             </form>
         </div>
     </main>
 
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-brand">Dekal</span>
+            <div class="footer-links">
+                <a href="https://demo.dekal.sh">Demo</a>
+                <a href="/">Home</a>
+            </div>
+            <span class="footer-copy">&copy; 2026 Dekal</span>
+        </div>
+    </footer>
 </body>
 </html>
