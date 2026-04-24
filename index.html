@@ -1,416 +1,492 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dekal — Implicit Modeling Engine</title>
-    <style>
-        @font-face {
-            font-family: 'Dekal Sans';
-            src: url('fonts/DekalSansVar-VariableVF.woff2') format('woff2');
-            font-weight: 100 700;
-            font-display: swap;
-        }
-
-        :root {
-            --bg-page: #F5F0E4;
-            --bg-surface: #FEFCF3;
-            --border: #D5D0C4;
-            --text-primary: #333;
-            --text-secondary: #555;
-            --text-muted: #666;
-            --accent: #80BE8C;
-            --accent-dark: #55775C;
-        }
-
-        * { box-sizing: border-box; }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            background: var(--bg-page);
-            color: var(--text-primary);
-            font-family: 'Dekal Sans', system-ui, sans-serif;
-            font-size: 17px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            color: var(--accent-dark);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            text-decoration-thickness: 1px;
-        }
-
-        a:hover {
-            color: var(--text-primary);
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 24px 58vh;
-        }
-
-        .hero h1 {
-            font-size: clamp(64px, 14vw, 160px);
-            font-weight: 600;
-            letter-spacing: -0.04em;
-            margin: 0 0 20px;
-            line-height: 0.95;
-            color: var(--accent-dark);
-        }
-
-        .hero .tagline {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 0;
-            max-width: 520px;
-        }
-
-        .hero .tagline b {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .hero .actions {
-            justify-content: center;
-        }
-
-        .hero-links {
-            margin-top: 28px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
-            font-size: 15px;
-        }
-
-        .hero-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 0 14px;
-            border-right: 1px solid var(--border);
-        }
-
-        .hero-links a:last-child {
-            border-right: none;
-        }
-
-        .hero-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .hero-links a.primary {
-            color: var(--accent-dark);
-            font-weight: 600;
-        }
-
-        .hero-links a.primary:hover {
-            color: #3f5c44;
-        }
-
-        .tool-preview {
-            max-width: 1100px;
-            margin: -55vh auto 100px;
-            padding: 0 28px;
-        }
-
-        .tool-preview img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow:
-                0 30px 60px -20px rgba(40, 30, 15, 0.25),
-                0 10px 20px -10px rgba(40, 30, 15, 0.15);
-        }
-
-        @media (max-width: 640px) {
-            .tool-preview {
-                margin: -18vh auto 64px;
-                padding: 0 16px;
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dekal — Implicit Modeling Engine</title>
+        <style>
+            @font-face {
+                font-family: "Dekal Sans";
+                src: url("fonts/DekalSansVar-VariableVF.woff2") format("woff2");
+                font-weight: 100 700;
+                font-display: swap;
             }
-        }
 
-        .container {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 28px 120px;
-        }
+            :root {
+                --bg-page: #f5f0e4;
+                --bg-surface: #fefcf3;
+                --border: #d5d0c4;
+                --text-primary: #333;
+                --text-secondary: #555;
+                --text-muted: #666;
+                --accent: #80be8c;
+                --accent-dark: #55775c;
+            }
 
-        section {
-            margin-bottom: 64px;
-        }
+            * {
+                box-sizing: border-box;
+            }
 
-        h2 {
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            margin: 0 0 20px;
-            color: var(--text-primary);
-        }
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                background: var(--bg-page);
+                color: var(--text-primary);
+                font-family: "Dekal Sans", system-ui, sans-serif;
+                font-size: 17px;
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
 
-        p {
-            margin: 0 0 16px;
-            color: var(--text-secondary);
-        }
+            a {
+                color: var(--accent-dark);
+                text-decoration: underline;
+                text-underline-offset: 3px;
+                text-decoration-thickness: 1px;
+            }
 
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-        }
+            a:hover {
+                color: var(--text-primary);
+            }
 
-        @media (max-width: 640px) {
-            .two-col { grid-template-columns: 1fr; gap: 28px; }
-            .container { padding: 0 22px 80px; }
-        }
+            .hero {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 40px 24px 58vh;
+            }
 
-        .col h3 {
-            font-size: 15px;
-            font-weight: 600;
-            margin: 0 0 10px;
-            color: var(--text-primary);
-        }
+            .hero h1 {
+                font-size: clamp(64px, 14vw, 160px);
+                font-weight: 600;
+                letter-spacing: -0.04em;
+                margin: 0 0 20px;
+                line-height: 0.95;
+                color: var(--accent-dark);
+            }
 
-        .col ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
+            .hero .tagline {
+                font-size: 18px;
+                font-weight: 600;
+                color: var(--text-primary);
+                margin: 0;
+                max-width: 520px;
+            }
 
-        .col ul li {
-            color: var(--text-secondary);
-            padding: 4px 0;
-            font-size: 15px;
-        }
+            .hero .tagline b {
+                color: var(--text-primary);
+                font-weight: 600;
+            }
 
-        .col ul li::before {
-            content: '— ';
-            color: var(--text-muted);
-        }
+            .hero .actions {
+                justify-content: center;
+            }
 
-        .faq-list {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            border-top: 1px solid var(--border);
-        }
+            .hero-links {
+                margin-top: 28px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                font-size: 15px;
+            }
 
-        .faq-list li {
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-        }
+            .hero-links a {
+                color: var(--text-secondary);
+                text-decoration: none;
+                padding: 0 14px;
+                border-right: 1px solid var(--border);
+            }
 
-        .faq-q {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 0 0 6px;
-            font-size: 16px;
-        }
+            .hero-links a:last-child {
+                border-right: none;
+            }
 
-        .faq-a {
-            margin: 0;
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
+            .hero-links a:hover {
+                color: var(--text-primary);
+            }
 
-        .actions {
-            display: flex;
-            gap: 20px;
-            margin-top: 28px;
-            flex-wrap: wrap;
-        }
+            .hero-links a.primary {
+                color: var(--accent-dark);
+                font-weight: 600;
+            }
 
-        .actions a {
-            font-size: 15px;
-        }
+            .hero-links a.primary:hover {
+                color: #3f5c44;
+            }
 
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 24px 28px;
-            background: var(--bg-page);
-        }
+            .tool-preview {
+                max-width: 1100px;
+                margin: -55vh auto 100px;
+                padding: 0 28px;
+            }
 
-        .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-            font-size: 14px;
-        }
+            .tool-preview img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 12px;
+                border: 1px solid var(--border);
+                box-shadow:
+                    0 30px 60px -20px rgba(40, 30, 15, 0.25),
+                    0 10px 20px -10px rgba(40, 30, 15, 0.15);
+            }
 
-        .footer-brand {
-            font-weight: 600;
-            color: var(--accent-dark);
-        }
+            @media (max-width: 640px) {
+                .tool-preview {
+                    margin: -18vh auto 64px;
+                    padding: 0 16px;
+                }
+            }
 
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
+            .container {
+                max-width: 680px;
+                margin: 0 auto;
+                padding: 0 28px 120px;
+            }
 
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-        }
+            section {
+                margin-bottom: 64px;
+            }
 
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
+            h2 {
+                font-size: 22px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                margin: 0 0 20px;
+                color: var(--text-primary);
+            }
 
-        .footer-copy {
-            color: var(--text-muted);
-            font-size: 13px;
-        }
-    </style>
-</head>
-<body>
-    <header class="hero">
-        <h1>Dekal</h1>
-        <p class="tagline">Fast mechanical design iteration.</p>
-        <nav class="hero-links">
-            <a href="https://github.com/dekalcorp">Source</a>
-            <a href="https://demo.dekal.sh" class="primary">Live demo</a>
-            <a href="https://demo.dekal.sh/help">Docs</a>
-            <a href="#faq">FAQ</a>
-            <a href="/contact.html">Contact</a>
-        </nav>
-    </header>
+            p {
+                margin: 0 0 16px;
+                color: var(--text-secondary);
+            }
 
-    <div class="tool-preview">
-        <img src="media/tool.png" alt="The Dekal design tool">
-    </div>
+            .two-col {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
 
-    <div class="container">
-        <h2>Rapid mechanical design iteration is here, but conventional CAD tools are not built for it.</h2>
-            <p>
-                Traditional BRep CAD was designed for precision, not speed.
-                Models take time to rebuild and often break when topology changes.
-            </p>
-            <p>
-                We need a new approach for rapid design iteration.
-            </p>
-        <h2>Dekal turns ideas into robust CAD in milliseconds</h2>
-        <section>
-            <p>
-                By using implicit modeling, Dekal can generate unbreakable parametric geometry instantly.
-                Implicit models are robust against topology changes and are generated through parallelizable compute.
-            </p>
-            <p>
-                Because the model is ultimately a mathematical function, it can easily be generated by AI and optimized using the same techniques commonly used in machine learning to train AI models.
-            </p>
-        </section>
+            @media (max-width: 640px) {
+                .two-col {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+                .container {
+                    padding: 0 22px 80px;
+                }
+            }
 
-        <section>
-            <h2>How does Dekal compare to conventional CAD?</h2>
-            <div class="two-col">
-                <div class="col">
-                    <h3>Conventional "BRep" CAD</h3>
-                    <ul>
-                        <li>Object is defined by a collection of 2D surfaces mapped to the 3D space</li>
-                        <li>Geometry is produced through slow, sequential execution</li>
-                        <li>Geometry breaks if the topology changes</li>
-                    </ul>
-                </div>
-                <div class="col">
-                    <h3>Implicit CAD</h3>
-                    <ul>
-                        <li>Object is defined through a function that maps the 4th dimension onto the 3D space</li>
-                        <li>Geometry is robust against any topology change</li>
-                        <li>Fast geometry generation by being massively parallelizable on the GPU</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+            .col h3 {
+                font-size: 15px;
+                font-weight: 600;
+                margin: 0 0 10px;
+                color: var(--text-primary);
+            }
 
-        <section id="faq">
-            <h2>FAQ</h2>
-            <ul class="faq-list">
-                <li>
-                    <p class="faq-q">What does modeling using implicits look like?</p>
-                    <p class="faq-a">
-                        Implicit models are generated through a series of operations, similar to a feature tree in conventional CAD.<br/>
-                        Each new step refers to a previous step but can't refer to a feature of the generated model itself.
-                        For example, you can't select a specific edge to be chamfered. At least not yet...
-                    </p>
-                </li>
-                <li>
-                    <p class="faq-q">What are the design areas where implicit modeling shines?</p>
-                    <p class="faq-a">
-                        Here are some examples: <br/>
-                        - Early in the product development phase when a large number of potential design implementations need to be generated and evaluated<br/>
-                        - For complex structures that are manufactured through additive manufacturing<br/>
-                        - For the generation of manufacturing tooling
-                    </p>
-                </li>
-                <li>
-                    <p class="faq-q">What are the domains where implicit modeling is less effective than conventional "BRep" CAD?</p>
-                    <p class="faq-a">
-                        Implicit modeling is typically less effective during the detailed design process.
-                        For example, specific design for manufacturing modifications are difficult to produce since you can't select specific features on the model itself.
-                        
-                    </p>
-                </li>
-                <li>
-                    <p class="faq-q">What user interface does Dekal provide?</p>
-                    <p class="faq-a">
-                        Dekal offers a conventional <i>visual design workbench</i> as well as a <i>scripting interface</i> to generate models through code.
-                    </p>
-                </li>
-                <li>
-                    <p class="faq-q">Can I generate models using AI / LLMs?</p>
-                    <p class="faq-a">
-                        Yes, thanks to robust topology and the code being the entire source of truth, implicit modeling is particularly well suited to be generated through AI.
-                    </p>
-                </li>
-                <li>
-                    <p class="faq-q">Does Dekal have a constraint solver?</p>
-                    <p class="faq-a">Yes, Dekal offers both a conventional sketch constraint system as well as 3D constraint system heavily inspired from robot kinematics design. See the demo here.</p>
-                </li>
-                <li>
-                    <p class="faq-q">What files can I export? Does Dekal support STEP files?</p>
-                    <p class="faq-a">At the moment Dekal can only export meshes. STEP files will be reserved for the future.</p>
-                </li>
-                <li>
-                    <p class="faq-q">How can I simulate my design?</p>
-                    <p class="faq-a">For the moment, you can export a mesh and load it into any simulation program.</p>
-                </li>
-                <li>
-                    <p class="faq-q">Why is it called "implicit"?</p>
-                    <p class="faq-a">
-                        In conventional CAD, the model is stored as a series of 2D surfaces within the 3D space.
-                        Even without the feature tree, you can still visualize and store those surfaces by themselves. <br/>
-                        In Implicit modeling, the only way to view the model is by evaluating the function that defines it.
-                        There is no other source of truth for the model other than this function.
-                    </p>
-                </li>
-            </ul>
-        </section>
-    </div>
-    
-    <footer>
-        <div class="footer-inner">
-            <span class="footer-brand">Dekal</span>
-            <div class="footer-links">
-                <a href="https://demo.dekal.sh">Demo</a>
+            .col ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .col ul li {
+                color: var(--text-secondary);
+                padding: 4px 0;
+                font-size: 15px;
+            }
+
+            .col ul li::before {
+                content: "— ";
+                color: var(--text-muted);
+            }
+
+            .faq-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                border-top: 1px solid var(--border);
+            }
+
+            .faq-list li {
+                padding: 18px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .faq-q {
+                font-weight: 600;
+                color: var(--text-primary);
+                margin: 0 0 6px;
+                font-size: 16px;
+            }
+
+            .faq-a {
+                margin: 0;
+                color: var(--text-secondary);
+                font-size: 15px;
+            }
+
+            .actions {
+                display: flex;
+                gap: 20px;
+                margin-top: 28px;
+                flex-wrap: wrap;
+            }
+
+            .actions a {
+                font-size: 15px;
+            }
+
+            footer {
+                border-top: 1px solid var(--border);
+                padding: 24px 28px;
+                background: var(--bg-page);
+            }
+
+            .footer-inner {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                flex-wrap: wrap;
+                font-size: 14px;
+            }
+
+            .footer-brand {
+                font-weight: 600;
+                color: var(--accent-dark);
+            }
+
+            .footer-links {
+                display: flex;
+                gap: 24px;
+            }
+
+            .footer-links a {
+                color: var(--text-muted);
+                text-decoration: none;
+            }
+
+            .footer-links a:hover {
+                color: var(--text-primary);
+            }
+
+            .footer-copy {
+                color: var(--text-muted);
+                font-size: 13px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="hero">
+            <h1>Dekal</h1>
+            <p class="tagline">Lightning fast implicit modeling.</p>
+            <nav class="hero-links">
+                <a href="https://github.com/dekalcorp">Source</a>
+                <a href="https://demo.dekal.sh" class="primary">Live demo</a>
+                <a href="https://demo.dekal.sh/help">Docs</a>
+                <a href="#faq">FAQ</a>
                 <a href="/contact.html">Contact</a>
-            </div>
-            <span class="footer-copy">&copy; 2026 Dekal</span>
+            </nav>
+        </header>
+
+        <div class="tool-preview">
+            <img src="media/tool.png" alt="The Dekal design tool" />
         </div>
-    </footer>
-</body>
+
+        <div class="container">
+            <h2>Conventional CAD tools are not built for rapid iteration.</h2>
+            <p>
+                Traditional BRep CAD was designed for precision, not speed of
+                iteration. Brep models rebuilds can't be paralelized and design
+                changes often introduce topology changes, which forces you to
+                fix your design.
+            </p>
+            <p>We need a new approach for rapid design iteration.</p>
+            <section>
+                <h2>Dekal turns ideas into robust CAD in milliseconds</h2>
+                <p>
+                    By using implicit modeling, Dekal can generate unbreakable
+                    parametric geometry instantly. Implicit models generate
+                    lightning fast thanks to paralelizable compute and are
+                    robust against topology changes.
+                </p>
+                <p>
+                    Because implicit models are ultimately a mathematical
+                    function, they can easily be generated by AI and optimized
+                    using the same techniques commonly used in machine learning
+                    to train language models.
+                </p>
+            </section>
+            <section>
+                <h2>How does Dekal compare to conventional CAD?</h2>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Conventional "BRep" CAD</h3>
+                        <ul>
+                            <li>
+                                Object is defined by a collection of 2D surfaces
+                                mapped to the 3D space
+                            </li>
+                            <li>
+                                Geometry is produced through slow, sequential
+                                execution
+                            </li>
+                            <li>Geometry breaks if the topology changes</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Implicit CAD</h3>
+                        <ul>
+                            <li>
+                                Object is defined through a function that maps
+                                the 4th dimension onto the 3D space
+                            </li>
+                            <li>
+                                Geometry is robust against any topology change
+                            </li>
+                            <li>
+                                Fast geometry generation by being massively
+                                parallelizable on the GPU
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>FAQ</h2>
+                <ul class="faq-list">
+                    <li>
+                        <p class="faq-q">
+                            What does modeling using implicits look like?
+                        </p>
+                        <p class="faq-a">
+                            Implicit models are generated through a series of
+                            operations, similar to a feature tree in
+                            conventional CAD.<br />
+                            Each new step refers to a previous step but can't
+                            refer to a feature of the generated model itself.
+                            For example, you can't select a specific edge to be
+                            chamfered. At least not yet...
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">
+                            What are the design areas where implicit modeling
+                            shines?
+                        </p>
+                        <p class="faq-a">
+                            Here are some examples: <br />
+                            - Early in the product development phase when a
+                            large number of potential design implementations
+                            need to be generated and evaluated<br />
+                            - For complex structures that are manufactured
+                            through additive manufacturing<br />
+                            - For the generation of manufacturing tooling
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">
+                            What are the domains where implicit modeling is less
+                            effective than conventional "BRep" CAD?
+                        </p>
+                        <p class="faq-a">
+                            Implicit modeling is typically less effective during
+                            the detailed design process. For example, specific
+                            design for manufacturing modifications are difficult
+                            to produce since you can't select specific features
+                            on the model itself.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">
+                            What user interface does Dekal provide?
+                        </p>
+                        <p class="faq-a">
+                            Dekal offers a conventional
+                            <i>visual design workbench</i> as well as a
+                            <i>scripting interface</i> to generate models
+                            through code.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">
+                            Can I generate models using AI / LLMs?
+                        </p>
+                        <p class="faq-a">
+                            Yes, thanks to robust topology and the code being
+                            the entire source of truth, implicit modeling is
+                            particularly well suited to be generated through AI.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">
+                            Does Dekal have a constraint solver?
+                        </p>
+                        <p class="faq-a">
+                            Yes, Dekal offers both a conventional sketch
+                            constraint system as well as 3D constraint system
+                            heavily inspired from robot kinematics design. See
+                            the demo here.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">
+                            What files can I export? Does Dekal support STEP
+                            files?
+                        </p>
+                        <p class="faq-a">
+                            At the moment Dekal can only export meshes. STEP
+                            files will be reserved for the future.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">How can I simulate my design?</p>
+                        <p class="faq-a">
+                            For the moment, you can export a mesh and load it
+                            into any simulation program.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">Why is it called "implicit"?</p>
+                        <p class="faq-a">
+                            In conventional CAD, the model is stored as a series
+                            of 2D surfaces within the 3D space. Even without the
+                            feature tree, you can still visualize and store
+                            those surfaces by themselves. <br />
+                            In Implicit modeling, the only way to view the model
+                            is by evaluating the function that defines it. There
+                            is no other source of truth for the model other than
+                            this function.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="faq-q">Can I try Dekal?</p>
+                        <p class="faq-a">Yes, checkout the live tool here.</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer-inner">
+                <span class="footer-brand">Dekal</span>
+                <div class="footer-links">
+                    <a href="https://demo.dekal.sh">Demo</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <span class="footer-copy">&copy; 2026 Dekal</span>
+            </div>
+        </footer>
+    </body>
 </html>
