@@ -385,7 +385,7 @@
                 </p>
                 <p>
                     As opposed to conventional BRep mechanical design software,
-                    which is crippled by slow sequential execution and topology instability,
+                    which is crippled by slow sequential execution and topological instability,
                     Dekal is built from the ground up to produce <b>unbreakable geometry running
                     lightning fast</b> on parallel compute, such as GPUs.
                 </p>
@@ -403,7 +403,7 @@
                     <div class="col">
                         <h3>Unbreakable</h3>
                         <p>
-                            Conventional CAD suffers from topology instabilities that lead to broken models that can't rebuild.
+                            Conventional CAD suffers from topological instabilities that lead to broken models that fail to rebuild.
                             Implicit geometry doesn't suffer from that problem. <b>Models always rebuild</b>, and can be used in automated design improvement pipelines as a result.
                         </p>
                     </div>
@@ -411,7 +411,7 @@
                         <h3>Differentiable</h3>
                         <p>
                             Just like neural nets, implicit models are represented through a graph representing a giant mathematical function.
-                            As such, implicit models can be embedded in the <b>same training processes used to train neural nets</b> and can be improved automatically.
+                            As such, implicit models can be embedded in the <b>same training processes used to train neural nets</b>, where parameters get improved through gradient descent.
                         </p>
                     </div>
                 </div>
@@ -444,11 +444,42 @@
                     </div>
 
                     <div class="compare-cell">Geometry breaks if the topology changes.</div>
-                    <div class="compare-cell">Geometry is robust against topology change.</div>
+                    <div class="compare-cell">Geometry is robust against topology changes.</div>
 
-                    <div class="compare-cell">One can select and directly mutate the generated geometry.</div>
-                    <div class="compare-cell">One can't mutate generated geometry. Everything is defined by the implicit function itself.</div>
+                    <div class="compare-cell">One can select elements on the geometry and mutate them directly.</div>
+                    <div class="compare-cell">One can only mutate the geometry indirectly, by referring to elements of the function that produced it.</div>
                 </div>
+            </section>
+
+            <section>
+                <h2>How does Dekal differ from existing implicit modelers?</h2>
+                <p>
+                    Existing implicit modeler libraries mostly rely on the
+                    evaluation of closed-form mathematical expressions to produce
+                    the geometry. The signed distance field is typically described
+                    as a combination of fundamental mathematical operations, such
+                    as addition, multiplication, exponential, sinusoid, etc. For
+                    example, see the operations supported in Matt Keeter's Fidget
+                    library
+                    <a href="https://github.com/mkeeter/fidget/blob/main/fidget-core/src/context/op.rs">here</a>.
+                </p>
+                <p>
+                    This technique has proven to be suited for the generation of
+                    very complex 3D models, as demonstrated by the work of Inigo
+                    Quilez. However, despite being philosophically elegant,
+                    engineers who model real objects rarely use fundamental
+                    mathematical operations to describe their intent. Because of
+                    this, there is a fundamental impedance mismatch between the
+                    power of implicit modeling and the creative intent of
+                    engineers.
+                </p>
+                <p>
+                    Dekal aims to close that gap by providing engineers with a
+                    user interface that they are familiar with &mdash; sketches,
+                    curves, splines, surfaces &mdash; while evaluating the model
+                    using implicit modeling techniques to preserve its benefits
+                    over conventional BRep kernels.
+                </p>
             </section>
 
             <section id="faq">
@@ -514,7 +545,7 @@
                         <p class="faq-a">
                             Yes, thanks to robust topology and the code being
                             the entire source of truth, implicit modeling is
-                            particularly well suited to be generated through AI.
+                            particularly well suited to AI generation.
                         </p>
                     </li>
                     <li>
@@ -534,8 +565,7 @@
                             files?
                         </p>
                         <p class="faq-a">
-                            At the moment Dekal can only export meshes. STEP
-                            export is planned for the future.
+                            At the moment Dekal can only export meshes.
                         </p>
                     </li>
                     <li>
